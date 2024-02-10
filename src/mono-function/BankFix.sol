@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity 0.8.20;
 
 import {ReentrancyGaurd} from "../utils/ReentrancyGaurd.sol";
 
@@ -26,7 +26,7 @@ contract Bank is ReentrancyGaurd {
         return address(this).balance;
     }
 
-    function userBalance(address user) returns (uint256 bal) {
+    function userBalance(address user) public view returns (uint256 bal) {
         bal = balanceOf[user];
     }
 }

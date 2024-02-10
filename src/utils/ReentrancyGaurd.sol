@@ -3,7 +3,7 @@
 pragma solidity ^0.8.20;
 
 contract ReentrancyGaurd {
-    bool internal locked;
+    bool internal lock;
 
     modifier nonReentrant() {
         require(!lock, "Non-Reentrant");

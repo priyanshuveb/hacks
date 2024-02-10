@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity 0.8.20;
 
 contract Bank {
     mapping(address => uint256) balanceOf;
@@ -11,7 +11,7 @@ contract Bank {
     }
 
     function withdraw() external {
-        require(balanceOf[msg.sender] > MIN_VALUE, "Less than minimum withdraw value");
+        // require(balanceOf[msg.sender] > MIN_VALUE, "Less than minimum withdraw value");
         uint256 balance = balanceOf[msg.sender];
         (bool success,) = msg.sender.call{value: balance}("");
         require(success, "transaction failed");
@@ -22,7 +22,7 @@ contract Bank {
         return address(this).balance;
     }
 
-    function userBalance(address user) returns (uint256 bal) {
+    function userBalance(address user) public view returns (uint256 bal) {
         bal = balanceOf[user];
     }
 }
