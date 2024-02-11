@@ -6,12 +6,12 @@ contract Bank {
     uint256 public constant MIN_VALUE = 1 ether;
 
     function deposit() external payable {
-        require(msg.value > MIN_VALUE, "Less than minimum deposit value");
+        require(msg.value >= MIN_VALUE, "Less than minimum deposit value");
         balanceOf[msg.sender] += msg.value;
     }
 
     function withdraw() external {
-        require(balanceOf[msg.sender] > MIN_VALUE, "Less than minimum withdraw value");
+        require(balanceOf[msg.sender] >= MIN_VALUE, "Less than minimum withdraw value");
         uint256 balance = balanceOf[msg.sender];
         (bool success,) = msg.sender.call{value: balance}("");
         require(success, "transaction failed");

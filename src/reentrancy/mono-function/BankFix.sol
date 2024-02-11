@@ -3,6 +3,7 @@ pragma solidity 0.8.20;
 
 import {ReentrancyGaurd} from "../utils/ReentrancyGaurd.sol";
 
+/// @notice adding nonReentrant modifier to withdraw function
 contract Bank is ReentrancyGaurd {
     mapping(address => uint256) balanceOf;
     uint256 public constant MIN_VALUE = 1 ether;
