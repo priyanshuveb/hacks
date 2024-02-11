@@ -11,7 +11,7 @@ contract Bank {
     }
 
     function withdraw() external {
-        // require(balanceOf[msg.sender] > MIN_VALUE, "Less than minimum withdraw value");
+        require(balanceOf[msg.sender] > MIN_VALUE, "Less than minimum withdraw value");
         uint256 balance = balanceOf[msg.sender];
         (bool success,) = msg.sender.call{value: balance}("");
         require(success, "transaction failed");
