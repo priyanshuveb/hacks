@@ -1,4 +1,6 @@
 ## Re-Entrancy
+The fallback function is the core ingredient of the reentrancy attack.
+Due to the logic flaw in the victim contract to not update the state variable at the right step, the attacker contract is able to reenter the victim contract before the victim contract is able to update the state variable and flush out the funds.
 ## Self-destruct
 ```solidity
 selfdestruct(address payable recipient)
