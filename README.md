@@ -30,3 +30,8 @@ A contract either requires a fallback or receive function to receive any ether i
 - data is stored sequentially in the order of declaration
 - storage is optimized to save space. If neighboring variables fit in a single
   32 bytes, then they are packed into the same slot, starting from the right
+
+### Access storage slot
+```bash
+cast storage --rpc-url sepolia <CONTRACT_ADDRESS> <SLOT_NUMBER>
+```

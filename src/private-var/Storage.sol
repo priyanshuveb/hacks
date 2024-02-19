@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 
-contract Vault {
+contract Storage {
     // slot 0
     uint private count = 123; // 32 bytes
     // slot 1 
