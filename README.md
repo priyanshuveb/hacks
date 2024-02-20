@@ -32,6 +32,15 @@ A contract either requires a fallback or receive function to receive any ether i
   32 bytes, then they are packed into the same slot, starting from the right
 
 ### Access storage slot
+- Start Anvil
 ```bash
-cast storage --rpc-url sepolia <CONTRACT_ADDRESS> <SLOT_NUMBER>
+anvil
+```
+- Deploy contract
+```bash
+forge script script/DeployStorage.sol:DeployStorage --rpc-url anvil --private-key ${PRIVATE_KEY_ANVIL}  --broadcast -vvvv
+```
+- Access slot value
+```bash
+cast storage --rpc-url anvil <CONTRACT_ADDRESS> <SLOT_NUMBER>
 ```
