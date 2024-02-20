@@ -26,6 +26,7 @@ A contract either requires a fallback or receive function to receive any ether i
 - address  = 20 byte (160 bits)
 
 ### Storage
+- [Layout of state variables in storage ](https://docs.soliditylang.org/en/latest/internals/layout_in_storage.html) 
 - 32 bytes for each slot
 - data is stored sequentially in the order of declaration
 - storage is optimized to save space. If neighboring variables fit in a single
