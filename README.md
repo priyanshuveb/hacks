@@ -11,6 +11,9 @@ Destroys the current contract, sending its funds to the given Address and end ex
 
 A contract either requires a fallback or receive function to receive any ether into it otherwise it rejects the incoming ether. The self-destruct  function bypasses that and forcefully sends the ether into that the receiving contract, the receiving contract need not be implementing fallback/receive function.
 
+## DoS (Denial of Service)
+Causing a function or a transaction not being able to execute
+
 ## Private Variable
 - 1 bit = 1 or 0
 - 1 byte = 8 bits
@@ -45,3 +48,4 @@ forge script script/DeployStorage.sol:DeployStorage --rpc-url anvil --private-ke
 ```bash
 cast storage --rpc-url anvil <CONTRACT_ADDRESS> <SLOT_NUMBER>
 ```
+
