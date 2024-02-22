@@ -32,6 +32,7 @@ contract Lottery {
                 revert("One address can only participate once");
             }
         }
+        participants.push(msg.sender);
     }
 
     function declareResult(address _winner) external onlyOwner {

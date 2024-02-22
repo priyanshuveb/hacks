@@ -12,7 +12,13 @@ Destroys the current contract, sending its funds to the given Address and end ex
 A contract either requires a fallback or receive function to receive any ether into it otherwise it rejects the incoming ether. The self-destruct  function bypasses that and forcefully sends the ether into that the receiving contract, the receiving contract need not be implementing fallback/receive function.
 
 ## DoS (Denial of Service)
-Causing a function or a transaction not being able to execute
+Causing a function or a transaction not being able to execute. In an overview while analyzing the code for DoS always look into:
+1) for-loops if they are unbounded
+2) external calls to other contracts and if that call can fail, if yes then is it reverting the whole tx and how this will affect the some function/service from being happening. For example:
+   1) Sending ether to a contract that does not accept it
+   2) Calling a function that does not exist
+   3) The external call execution runs out of gas
+   4) Third party contract is malicious and intentionally reverts false
 
 ## Private Variable
 - 1 bit = 1 or 0
