@@ -25,6 +25,7 @@ contract Lottery {
 
     /// @notice Check for minimum amount to participate
     /// @notice Check for duplicate users
+    /// @notice unbound for-loop which will increasingly make the gas fee high enough for a DoS attack 
     function enterLottery() external payable {
         require(msg.value == amountToParticipate, "Not enought funds to participate");
         for(uint256 i=0; i<participants.length;i++) {
