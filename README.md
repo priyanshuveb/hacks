@@ -55,3 +55,11 @@ forge script script/DeployStorage.sol:DeployStorage --rpc-url anvil --private-ke
 cast storage --rpc-url anvil <CONTRACT_ADDRESS> <SLOT_NUMBER>
 ```
 
+## Weak PRNG (Pseudo Random Number Generator)
+block.timestamp can be manipulated by miners with the following constraints
+
+- it cannot be stamped with an earlier time than its parent
+- it cannot be too far in the future
+### Prevention
+- Chainlink VRF
+- Commit Reveal Scheme
